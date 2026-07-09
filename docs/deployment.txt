@@ -1,0 +1,172 @@
+Ranks GitHub Repository Deployment
+====================================
+
+This guide covers deploying the Ranks datapack as its own GitHub repository,
+setting up the scheduled rank-update cron job, and publishing static files to
+GitHub Pages for fetch() from your main website.
+
+
+Repository layout
+-----------------
+
+DataPacks/ (local only)
+  Walkthrough/
+    Ranks Deployment.txt   <- this file (local reference copy)
+  Ranks/                   <- push THIS folder as a standalone GitHub repo
+    rank-update.py
+    requirements.txt
+    Data/                  <- archived JSON history (written by the script)
+    docs/                  <- published by GitHub Pages
+      index.html
+      rank-thresholds.json <- latest data (fetch target)
+      deployment.txt       <- copy of this guide
+    .github/workflows/
+      rank-update.yml      <- cron + manual runner
+
+
+Step 1: Create the GitHub repository
+------------------------------------
+
+1. On GitHub, create a new empty repository (example name: rsleagues-ranks).
+2. Do not add a README, .gitignore, or license (this folder already has files).
+
+From PowerShell, inside the Ranks folder:
+
+  cd f:\Dev\rsleagues\DataPacks\Ranks
+  git init
+  git add .
+  git commit -m "Initial ranks datapack"
+  git branch -M main
+  git remote add origin https://github.com/YOUR_USER/rsleagues-ranks.git
+  git push -u origin main
+
+Replace YOUR_USER and the repo name with your values.
+
+
+Step 2: Enable workflow permissions
+-----------------------------------
+
+The cron job commits updated JSON back to the repo.
+
+1. Open the repo on GitHub.
+2. Settings -> Actions -> General.
+3. Under "Workflow permissions", select "Read and write permissions".
+4. Save.
+
+
+Step 3: Verify the cron workflow
+--------------------------------
+
+Workflow file: .github/workflows/rank-update.yml
+
+Schedule:
+  cron: "0,30 * * * *"
+
+GitHub Actions cron always runs in UTC. This fires at minute 0 and minute 30
+of every hour (for example 14:00 UTC and 14:30 UTC).
+
+Manual test before waiting for the schedule:
+
+1. Actions tab -> "Rank Update" -> "Run workflow" -> Run workflow.
+2. Wait for the job to finish green.
+3. Confirm new commits appear on main for Data/ and docs/rank-thresholds.json.
+
+If the job fails on push, recheck Step 2 workflow permissions.
+
+
+Step 4: Enable GitHub Pages
+---------------------------
+
+1. Settings -> Pages.
+2. Source: "Deploy from a branch".
+3. Branch: main
+4. Folder: /docs
+5. Save.
+
+After a minute or two the site is live at:
+
+  https://YOUR_USER.github.io/REPO_NAME/
+
+Published files:
+
+  https://YOUR_USER.github.io/REPO_NAME/rank-thresholds.json
+  https://YOUR_USER.github.io/REPO_NAME/deployment.txt
+  https://YOUR_USER.github.io/REPO_NAME/index.html
+
+Each successful cron run updates docs/rank-thresholds.json and pushes to main.
+GitHub Pages will serve the new JSON on the next Pages build (usually within
+a few minutes of the push).
+
+
+Step 5: Use fetch() from your website
+-------------------------------------
+
+Example:
+
+  const response = await fetch(
+    "https://YOUR_USER.github.io/REPO_NAME/rank-thresholds.json"
+  );
+  const ranks = await response.json();
+
+  console.log(ranks.logged_at);
+  console.log(ranks.total_players);
+  ranks.ranks.forEach((rank) => {
+    console.log(rank.name, rank.point_cutoff, rank.players_qualified);
+  });
+
+No redeploy of your main site is needed when rank data changes; the cron job
+updates the JSON on GitHub Pages automatically.
+
+JSON shape:
+
+  {
+    "logged_at": "2026-07-09T01:30:00.123456+00:00",
+    "total_players": 12345,
+    "ranks": [
+      {
+        "name": "Dragon",
+        "point_cutoff": 65000,
+        "players_qualified": 500
+      }
+    ]
+  }
+
+Older snapshots are kept in Data/ as rank-thresholds_1.json, _2.json, etc.
+Only docs/rank-thresholds.json is published for fetch().
+
+
+Step 6: Local development
+-------------------------
+
+Run manually from the Ranks folder:
+
+  pip install -r requirements.txt
+  python rank-update.py
+
+Output is written to Data/rank-thresholds.json (archiving any previous file).
+
+
+Troubleshooting
+---------------
+
+Cron not running:
+  - Scheduled workflows only run on the default branch (main).
+  - Inactive repos may have scheduled workflows paused; push a commit or run
+    the workflow manually to re-enable.
+  - Confirm the workflow file is on main at .github/workflows/rank-update.yml.
+
+Pages 404:
+  - Confirm Pages source is main + /docs.
+  - Confirm docs/rank-thresholds.json exists on main (run workflow once).
+
+Push denied in Actions:
+  - Re-check workflow read/write permissions (Step 2).
+
+fetch() blocked by CORS:
+  - GitHub Pages serves static files with permissive CORS for public repos.
+  - If you still hit issues, proxy the request through your backend.
+
+Updating this guide on Pages:
+  - Edit Walkthrough/Ranks Deployment.txt locally (DataPacks copy).
+  - Copy changes into Ranks/docs/deployment.txt.
+  - Commit and push the Ranks repo.
