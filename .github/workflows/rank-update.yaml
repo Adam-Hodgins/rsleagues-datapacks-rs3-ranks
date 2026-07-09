@@ -1,0 +1,45 @@
+name: Rank Update
+
+on:
+  schedule:
+    # Runs at :00 and :30 of every hour (UTC).
+    - cron: "0,30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  update-ranks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run rank update
+        run: python rank-update.py
+
+      - name: Publish data to GitHub Pages
+        run: cp Data/rank-thresholds.json docs/rank-thresholds.json
+
+      - name: Commit rank data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Data/ docs/rank-thresholds.json
+          if git diff --staged --quiet; then
+            echo "No rank data changes to commit."
+          else
+            git commit -m "Update rank thresholds data"
+            git push
+          fi
