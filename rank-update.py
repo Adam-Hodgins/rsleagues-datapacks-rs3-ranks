@@ -1,4 +1,5 @@
 import json
+import time
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
@@ -13,8 +14,21 @@ BASE_URL = (
 )
 MAX_PAGE_GUESS = 20000
 REQUEST_TIMEOUT_SECONDS = 20
+MAX_REQUEST_RETRIES = 4
+RETRY_BACKOFF_SECONDS = 2
 VERBOSE = False
 SHOW_PROGRESS = True
+REQUEST_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) "
+        "Gecko/20100101 Firefox/128.0"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://secure.runescape.com/m=hiscore_oldschool_seasonal/overall",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+}
 
 RANK_THRESHOLDS = [
     ("Dragon", 65000),
@@ -30,6 +44,7 @@ DATA_DIR = Path(__file__).parent / "Data"
 OUTPUT_FILENAME = "rank-thresholds.json"
 
 session = requests.Session()
+session.headers.update(REQUEST_HEADERS)
 
 
 def prepare_output_path():
@@ -57,17 +72,43 @@ def print_inline_status(message):
     print(f"\r{message}", end="", flush=True)
 
 
-@lru_cache(maxsize=None)
-def get_hiscores_page(page_number):
-    """
-    Returns a tuple of (rank, score) rows for a hiscores page.
-    Cached so repeated binary searches do not re-fetch pages.
-    """
-    url = BASE_URL.format(page_number=page_number)
-    response = session.get(url, timeout=REQUEST_TIMEOUT_SECONDS)
-    response.raise_for_status()
+def _fetch_hiscores(url):
+    last_error = None
+    for attempt in range(1, MAX_REQUEST_RETRIES + 1):
+        try:
+            response = session.get(url, timeout=REQUEST_TIMEOUT_SECONDS)
+            response.raise_for_status()
+            return response
+        except requests.HTTPError as exc:
+            last_error = exc
+            status_code = exc.response.status_code if exc.response is not None else None
+            if status_code in (403, 429, 500, 502, 503, 504) and attempt < MAX_REQUEST_RETRIES:
+                time.sleep(RETRY_BACKOFF_SECONDS * attempt)
+                continue
+            raise
+        except requests.RequestException as exc:
+            last_error = exc
+            if attempt < MAX_REQUEST_RETRIES:
+                time.sleep(RETRY_BACKOFF_SECONDS * attempt)
+                continue
+            raise
+    raise last_error
 
-    soup = BeautifulSoup(response.text, "html.parser")
+
+def _parse_hiscores_html(html):
+    soup = BeautifulSoup(html, "html.parser")
+    parsed_rows = []
+
+    for row in soup.select("tr.personal-hiscores__row"):
+        cells = row.find_all("td")
+        if len(cells) < 3:
+            continue
+        rank = _parse_int(cells[0].text.strip())
+        score = _parse_int(cells[-1].text.strip())
+        parsed_rows.append((rank, score))
+    if parsed_rows:
+        return tuple(parsed_rows)
+
     content_div = soup.find("div", {"id": "contentHiscores"})
     if not content_div:
         return tuple()
@@ -76,7 +117,6 @@ def get_hiscores_page(page_number):
     if not table:
         return tuple()
 
-    parsed_rows = []
     for row in table.find_all("tr"):
         cells = row.find_all("td")
         if len(cells) < 3:
@@ -86,6 +126,17 @@ def get_hiscores_page(page_number):
         parsed_rows.append((rank, score))
 
     return tuple(parsed_rows)
+
+
+@lru_cache(maxsize=None)
+def get_hiscores_page(page_number):
+    """
+    Returns a tuple of (rank, score) rows for a hiscores page.
+    Cached so repeated binary searches do not re-fetch pages.
+    """
+    url = BASE_URL.format(page_number=page_number)
+    response = _fetch_hiscores(url)
+    return _parse_hiscores_html(response.text)
 
 
 def get_page_signature(page_number):
