@@ -1,7 +1,7 @@
 {
-  "logged_at": "2026-08-10T14:55:35.873909+00:00",
-  "total_players": 16675,
-  "total_players_change": 1250,
+  "logged_at": "2026-08-10T14:25:31.827633+00:00",
+  "total_players": 15425,
+  "total_players_change": 2975,
   "ranks": [
     {
       "name": "Dragon",
@@ -42,12 +42,12 @@
     {
       "name": "Bronze",
       "point_cutoff": 2000,
-      "players_qualified": 1,
-      "players_qualified_change": 1
+      "players_qualified": 0,
+      "players_qualified_change": 0
     }
   ],
   "top_player": {
     "player_name": "Fuzzy Chunks",
-    "points": 2010
+    "points": 1890
   }
 }
