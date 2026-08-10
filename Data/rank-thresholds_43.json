@@ -1,7 +1,7 @@
 {
-  "logged_at": "2026-08-10T13:25:34.668124+00:00",
-  "total_players": 9350,
-  "total_players_change": 3800,
+  "logged_at": "2026-08-10T12:55:26.382575+00:00",
+  "total_players": 5550,
+  "total_players_change": 4525,
   "ranks": [
     {
       "name": "Dragon",
@@ -47,7 +47,7 @@
     }
   ],
   "top_player": {
-    "player_name": "Fuzzy Chunks",
-    "points": 1280
+    "player_name": "prada",
+    "points": 930
   }
 }
