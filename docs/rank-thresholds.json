@@ -1,7 +1,7 @@
 {
-  "logged_at": "2026-08-10T17:55:51.225400+00:00",
-  "total_players": 33050,
-  "total_players_change": 2300,
+  "logged_at": "2026-08-10T18:25:53.872431+00:00",
+  "total_players": 34725,
+  "total_players_change": 1675,
   "ranks": [
     {
       "name": "Dragon",
@@ -36,18 +36,18 @@
     {
       "name": "Iron",
       "point_cutoff": 4000,
-      "players_qualified": 5,
-      "players_qualified_change": 5
+      "players_qualified": 8,
+      "players_qualified_change": 3
     },
     {
       "name": "Bronze",
       "point_cutoff": 2000,
-      "players_qualified": 2929,
-      "players_qualified_change": 902
+      "players_qualified": 3973,
+      "players_qualified_change": 1044
     }
   ],
   "top_player": {
-    "player_name": "Mistime",
-    "points": 4450
+    "player_name": "okeneko gim",
+    "points": 5060
   }
 }
