@@ -1,7 +1,7 @@
 {
-  "logged_at": "2026-08-10T22:56:03.425694+00:00",
-  "total_players": 50000,
-  "total_players_change": 1800,
+  "logged_at": "2026-08-10T23:26:02.249991+00:00",
+  "total_players": 51475,
+  "total_players_change": 1475,
   "ranks": [
     {
       "name": "Dragon",
@@ -36,18 +36,18 @@
     {
       "name": "Iron",
       "point_cutoff": 4000,
-      "players_qualified": 954,
-      "players_qualified_change": 429
+      "players_qualified": 1242,
+      "players_qualified_change": 288
     },
     {
       "name": "Bronze",
       "point_cutoff": 2000,
-      "players_qualified": 15191,
-      "players_qualified_change": 1293
+      "players_qualified": 16417,
+      "players_qualified_change": 1226
     }
   ],
   "top_player": {
-    "player_name": "Mistrock",
-    "points": 7720
+    "player_name": "Geckomon",
+    "points": 8190
   }
 }
