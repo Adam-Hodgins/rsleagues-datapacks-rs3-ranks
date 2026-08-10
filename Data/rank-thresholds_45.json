@@ -1,7 +1,7 @@
 {
-  "logged_at": "2026-08-10T14:25:31.827633+00:00",
-  "total_players": 15425,
-  "total_players_change": 2975,
+  "logged_at": "2026-08-10T13:55:33.206848+00:00",
+  "total_players": 12450,
+  "total_players_change": 3100,
   "ranks": [
     {
       "name": "Dragon",
@@ -47,7 +47,7 @@
     }
   ],
   "top_player": {
-    "player_name": "Fuzzy Chunks",
-    "points": 1890
+    "player_name": "Geckomon",
+    "points": 1640
   }
 }
