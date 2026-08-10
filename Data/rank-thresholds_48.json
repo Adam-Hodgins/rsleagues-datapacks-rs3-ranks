@@ -1,7 +1,7 @@
 {
-  "logged_at": "2026-08-10T15:55:55.005501+00:00",
-  "total_players": 22725,
-  "total_players_change": 2800,
+  "logged_at": "2026-08-10T15:25:34.447076+00:00",
+  "total_players": 19925,
+  "total_players_change": 3250,
   "ranks": [
     {
       "name": "Dragon",
@@ -42,12 +42,12 @@
     {
       "name": "Bronze",
       "point_cutoff": 2000,
-      "players_qualified": 171,
-      "players_qualified_change": 141
+      "players_qualified": 30,
+      "players_qualified_change": 29
     }
   ],
   "top_player": {
-    "player_name": "prada",
-    "points": 2730
+    "player_name": "okeneko gim",
+    "points": 2360
   }
 }
