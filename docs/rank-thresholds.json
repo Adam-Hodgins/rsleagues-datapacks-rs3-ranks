@@ -1,6 +1,6 @@
 {
-  "logged_at": "2026-08-12T17:26:05.714714+00:00",
-  "total_players": 82925,
+  "logged_at": "2026-08-12T17:56:30.929244+00:00",
+  "total_players": 83075,
   "total_players_change": 150,
   "ranks": [
     {
@@ -24,30 +24,30 @@
     {
       "name": "Mithril",
       "point_cutoff": 17000,
-      "players_qualified": 153,
-      "players_qualified_change": 0
+      "players_qualified": 155,
+      "players_qualified_change": 2
     },
     {
       "name": "Steel",
       "point_cutoff": 10000,
-      "players_qualified": 2366,
-      "players_qualified_change": -59
+      "players_qualified": 2375,
+      "players_qualified_change": 9
     },
     {
       "name": "Iron",
       "point_cutoff": 4000,
-      "players_qualified": 27675,
-      "players_qualified_change": 525
+      "players_qualified": 28000,
+      "players_qualified_change": 325
     },
     {
       "name": "Bronze",
       "point_cutoff": 2000,
-      "players_qualified": 52735,
-      "players_qualified_change": 0
+      "players_qualified": 53050,
+      "players_qualified_change": 315
     }
   ],
   "top_player": {
-    "player_name": "Mistrock",
-    "points": 29100
+    "player_name": "Stormy",
+    "points": 29520
   }
 }
