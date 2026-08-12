@@ -1,7 +1,7 @@
 {
-  "logged_at": "2026-08-12T01:56:23.065476+00:00",
-  "total_players": 77600,
-  "total_players_change": 300,
+  "logged_at": "2026-08-12T01:26:17.259448+00:00",
+  "total_players": 77300,
+  "total_players_change": 275,
   "ranks": [
     {
       "name": "Dragon",
@@ -24,30 +24,30 @@
     {
       "name": "Mithril",
       "point_cutoff": 17000,
-      "players_qualified": 25,
-      "players_qualified_change": 3
+      "players_qualified": 22,
+      "players_qualified_change": 1
     },
     {
       "name": "Steel",
       "point_cutoff": 10000,
-      "players_qualified": 650,
-      "players_qualified_change": 125
+      "players_qualified": 525,
+      "players_qualified_change": -75
     },
     {
       "name": "Iron",
       "point_cutoff": 4000,
-      "players_qualified": 19125,
-      "players_qualified_change": -400
+      "players_qualified": 19525,
+      "players_qualified_change": 650
     },
     {
       "name": "Bronze",
       "point_cutoff": 2000,
-      "players_qualified": 45650,
-      "players_qualified_change": 324
+      "players_qualified": 45326,
+      "players_qualified_change": 451
     }
   ],
   "top_player": {
-    "player_name": "LeaguesRDumb",
-    "points": 22530
+    "player_name": "Dyselexic",
+    "points": 22380
   }
 }
