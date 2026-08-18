@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "series": "trophy-rank-cutoffs",
+  "logged_at": "2026-08-12T05:25:47.469844+00:00",
+  "total_players": 79450,
+  "ranks": [
+    {
+      "name": "Dragon",
+      "point_cutoff": 48000,
+      "players_qualified": 0
+    },
+    {
+      "name": "Rune",
+      "point_cutoff": 35000,
+      "players_qualified": 0
+    },
+    {
+      "name": "Adamant",
+      "point_cutoff": 25000,
+      "players_qualified": 0
+    },
+    {
+      "name": "Mithril",
+      "point_cutoff": 17000,
+      "players_qualified": 36
+    },
+    {
+      "name": "Steel",
+      "point_cutoff": 10000,
+      "players_qualified": 975
+    },
+    {
+      "name": "Iron",
+      "point_cutoff": 4000,
+      "players_qualified": 21750
+    },
+    {
+      "name": "Bronze",
+      "point_cutoff": 2000,
+      "players_qualified": 46475
+    }
+  ],
+  "top_player": {
+    "name": "LeaguesRDumb",
+    "points": 22530
+  }
+}
