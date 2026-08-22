@@ -1,0 +1,53 @@
+{
+  "logged_at": "2026-08-22T22:27:59.290935+00:00",
+  "total_players": 113711,
+  "total_players_change": 36,
+  "ranks": [
+    {
+      "name": "Dragon",
+      "point_cutoff": 48000,
+      "players_qualified": 1499,
+      "players_qualified_change": 9
+    },
+    {
+      "name": "Rune",
+      "point_cutoff": 35000,
+      "players_qualified": 5101,
+      "players_qualified_change": 29
+    },
+    {
+      "name": "Adamant",
+      "point_cutoff": 25000,
+      "players_qualified": 15217,
+      "players_qualified_change": 63
+    },
+    {
+      "name": "Mithril",
+      "point_cutoff": 17000,
+      "players_qualified": 27073,
+      "players_qualified_change": 68
+    },
+    {
+      "name": "Steel",
+      "point_cutoff": 10000,
+      "players_qualified": 43397,
+      "players_qualified_change": 68
+    },
+    {
+      "name": "Iron",
+      "point_cutoff": 4000,
+      "players_qualified": 70533,
+      "players_qualified_change": 52
+    },
+    {
+      "name": "Bronze",
+      "point_cutoff": 2000,
+      "players_qualified": 85717,
+      "players_qualified_change": 39
+    }
+  ],
+  "top_player": {
+    "player_name": "cowchy",
+    "points": 78060
+  }
+}
