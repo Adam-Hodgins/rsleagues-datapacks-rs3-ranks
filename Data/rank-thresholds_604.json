@@ -1,0 +1,53 @@
+{
+  "logged_at": "2026-08-22T04:57:41.823039+00:00",
+  "total_players": 112577,
+  "total_players_change": 38,
+  "ranks": [
+    {
+      "name": "Dragon",
+      "point_cutoff": 48000,
+      "players_qualified": 1194,
+      "players_qualified_change": 12
+    },
+    {
+      "name": "Rune",
+      "point_cutoff": 35000,
+      "players_qualified": 4359,
+      "players_qualified_change": 12
+    },
+    {
+      "name": "Adamant",
+      "point_cutoff": 25000,
+      "players_qualified": 13941,
+      "players_qualified_change": 38
+    },
+    {
+      "name": "Mithril",
+      "point_cutoff": 17000,
+      "players_qualified": 25469,
+      "players_qualified_change": 48
+    },
+    {
+      "name": "Steel",
+      "point_cutoff": 10000,
+      "players_qualified": 41902,
+      "players_qualified_change": 53
+    },
+    {
+      "name": "Iron",
+      "point_cutoff": 4000,
+      "players_qualified": 69503,
+      "players_qualified_change": 29
+    },
+    {
+      "name": "Bronze",
+      "point_cutoff": 2000,
+      "players_qualified": 84870,
+      "players_qualified_change": 28
+    }
+  ],
+  "top_player": {
+    "player_name": "Reha",
+    "points": 75000
+  }
+}
