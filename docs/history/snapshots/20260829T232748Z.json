@@ -1,53 +1,47 @@
 {
+  "schema_version": 1,
+  "series": "trophy-rank-cutoffs",
   "logged_at": "2026-08-29T23:27:48.271986+00:00",
   "total_players": 120772,
-  "total_players_change": 26,
   "ranks": [
     {
       "name": "Dragon",
       "point_cutoff": 48000,
-      "players_qualified": 5438,
-      "players_qualified_change": 19
+      "players_qualified": 5438
     },
     {
       "name": "Rune",
       "point_cutoff": 35000,
-      "players_qualified": 11683,
-      "players_qualified_change": 29
+      "players_qualified": 11683
     },
     {
       "name": "Adamant",
       "point_cutoff": 25000,
-      "players_qualified": 24811,
-      "players_qualified_change": 29
+      "players_qualified": 24811
     },
     {
       "name": "Mithril",
       "point_cutoff": 17000,
-      "players_qualified": 38738,
-      "players_qualified_change": 38
+      "players_qualified": 38738
     },
     {
       "name": "Steel",
       "point_cutoff": 10000,
-      "players_qualified": 53069,
-      "players_qualified_change": 36
+      "players_qualified": 53069
     },
     {
       "name": "Iron",
       "point_cutoff": 4000,
-      "players_qualified": 77133,
-      "players_qualified_change": 14
+      "players_qualified": 77133
     },
     {
       "name": "Bronze",
       "point_cutoff": 2000,
-      "players_qualified": 91380,
-      "players_qualified_change": 11
+      "players_qualified": 91380
     }
   ],
   "top_player": {
-    "player_name": "cowchy",
+    "name": "cowchy",
     "points": 78290
   }
 }
