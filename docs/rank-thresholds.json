@@ -1,49 +1,49 @@
 {
-  "logged_at": "2026-09-02T02:27:43.695332+00:00",
-  "total_players": 122820,
-  "total_players_change": 10,
+  "logged_at": "2026-09-02T02:57:58.925594+00:00",
+  "total_players": 122828,
+  "total_players_change": 8,
   "ranks": [
     {
       "name": "Dragon",
       "point_cutoff": 48000,
-      "players_qualified": 7366,
-      "players_qualified_change": 15
+      "players_qualified": 7379,
+      "players_qualified_change": 13
     },
     {
       "name": "Rune",
       "point_cutoff": 35000,
-      "players_qualified": 14140,
-      "players_qualified_change": 11
+      "players_qualified": 14158,
+      "players_qualified_change": 18
     },
     {
       "name": "Adamant",
       "point_cutoff": 25000,
-      "players_qualified": 27918,
+      "players_qualified": 27939,
       "players_qualified_change": 21
     },
     {
       "name": "Mithril",
       "point_cutoff": 17000,
-      "players_qualified": 42054,
-      "players_qualified_change": 24
+      "players_qualified": 42075,
+      "players_qualified_change": 21
     },
     {
       "name": "Steel",
       "point_cutoff": 10000,
-      "players_qualified": 55855,
-      "players_qualified_change": 15
+      "players_qualified": 55869,
+      "players_qualified_change": 14
     },
     {
       "name": "Iron",
       "point_cutoff": 4000,
-      "players_qualified": 78955,
-      "players_qualified_change": 6
+      "players_qualified": 78969,
+      "players_qualified_change": 14
     },
     {
       "name": "Bronze",
       "point_cutoff": 2000,
-      "players_qualified": 93088,
-      "players_qualified_change": 14
+      "players_qualified": 93101,
+      "players_qualified_change": 13
     }
   ],
   "top_player": {
