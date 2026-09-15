@@ -1,0 +1,53 @@
+{
+  "logged_at": "2026-09-15T22:58:04.451708+00:00",
+  "total_players": 126828,
+  "total_players_change": 2,
+  "ranks": [
+    {
+      "name": "Dragon",
+      "point_cutoff": 48000,
+      "players_qualified": 13913,
+      "players_qualified_change": 7
+    },
+    {
+      "name": "Rune",
+      "point_cutoff": 35000,
+      "players_qualified": 21048,
+      "players_qualified_change": 9
+    },
+    {
+      "name": "Adamant",
+      "point_cutoff": 25000,
+      "players_qualified": 35035,
+      "players_qualified_change": 11
+    },
+    {
+      "name": "Mithril",
+      "point_cutoff": 17000,
+      "players_qualified": 49042,
+      "players_qualified_change": 8
+    },
+    {
+      "name": "Steel",
+      "point_cutoff": 10000,
+      "players_qualified": 61279,
+      "players_qualified_change": 5
+    },
+    {
+      "name": "Iron",
+      "point_cutoff": 4000,
+      "players_qualified": 82620,
+      "players_qualified_change": 4
+    },
+    {
+      "name": "Bronze",
+      "point_cutoff": 2000,
+      "players_qualified": 96356,
+      "players_qualified_change": 0
+    }
+  ],
+  "top_player": {
+    "player_name": "Kebap Lover",
+    "points": 78700
+  }
+}
